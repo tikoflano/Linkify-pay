@@ -9,9 +9,10 @@
         {{ price | currency }}
       </span>
       <mat-icon
-        class="cursor-pointer hover:bg-gray-200 rounded-full ml-1"
+        class="cursor-pointer hover:bg-gray-100 rounded-full ml-1 transition-transform duration-500"
+        [ngClass]="{ '-rotate-180': showInvoiceDetails }"
         (click)="showInvoiceDetails = !showInvoiceDetails"
-        >{{ showInvoiceDetails ? "expand_less" : "expand_more" }}</mat-icon
+        >expand_more</mat-icon
       >
     </div>
     <linkify-step-count [steps]="steps" [currentStep]="currentStep" />
@@ -22,4 +23,35 @@
       <div class="mt-2" [innerHtml]="invoiceDetails"></div>
     </div>
   </mat-card-header>
+  <mat-card-content class="flex-grow text-center flex flex-col">
+    <div class="text-3xl font-medium mt-12">Ingresa tu email</div>
+    <mat-form-field class="mt-10 w-full" appearance="outline">
+      <mat-label class="after:border-none before:border-none">Email</mat-label>
+      <input matInput placeholder="Ingresar Email" autofocus />
+    </mat-form-field>
+
+    <div class="flex-grow"></div>
+
+    <div class="flex flex-col mb-4">
+      <button
+        class="border-indigo-800 border rounded-full p-5 mb-2 text-indigo-800 font-medium"
+      >
+        Ya realicé la transferencia
+      </button>
+      <button
+        class="border-indigo-800 border rounded-full p-5 bg-gradient-to-r from-indigo-950 to-indigo-500 font-medium text-white"
+      >
+        Realizar transferencia
+      </button>
+    </div>
+  </mat-card-content>
+  <mat-card-footer class="flex justify-center opacity-70 my-2">
+    <mat-icon fontSet="material-icons-outlined">verified_user</mat-icon>
+    <span>
+      Paga seguro con
+      <a class="text-purple-800 font-medium" href="https://linkify.cl">
+        Linkify
+      </a>
+    </span>
+  </mat-card-footer>
 </mat-card>

@@ -9,7 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { StepCountComponent } from './components/step-count/step-count.component';
-import { MatExpansionModule } from '@angular/material/expansion';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [AppComponent, StepCountComponent],
@@ -20,7 +20,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
     MatButtonModule,
     MatCardModule,
     MatIconModule,
-    MatExpansionModule,
+    MatInputModule,
   ],
   providers: [{ provide: DEFAULT_CURRENCY_CODE, useValue: 'CLP' }],
   bootstrap: [AppComponent],
