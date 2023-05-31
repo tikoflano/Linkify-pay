@@ -1,0 +1,25 @@
+<mat-card
+  class="h-full rounded-none md:max-w-lg md:mx-auto md:mt-4 md:max-h-[800px]"
+>
+  <mat-card-header
+    class="border-b-2 justify-between py-2 items-center flex-wrap overflow-y-hidden"
+  >
+    <div class="flex flex-grow">
+      <span class="text-lg font-medium">
+        {{ price | currency }}
+      </span>
+      <mat-icon
+        class="cursor-pointer hover:bg-gray-200 rounded-full ml-1"
+        (click)="showInvoiceDetails = !showInvoiceDetails"
+        >{{ showInvoiceDetails ? "expand_less" : "expand_more" }}</mat-icon
+      >
+    </div>
+    <linkify-step-count [steps]="steps" [currentStep]="currentStep" />
+    <div
+      class="w-full text-xs whitespace-pre-wrap"
+      [@hideDetails]="!showInvoiceDetails"
+    >
+      <div class="mt-2" [innerHtml]="invoiceDetails"></div>
+    </div>
+  </mat-card-header>
+</mat-card>
